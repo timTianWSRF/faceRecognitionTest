@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>抽签签到</title>
+</head>
+<body>
+<li>抽签结果</li>
+    {% for k, v in result.items %}
+        <a href="{{ v }}">姓名：{{ k }}</a>
+    {% endfor %}
+</body>
+</html>

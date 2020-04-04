@@ -16,15 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
-from faceDataManagement.views import data, upload_file, index
+from faceDataManagement.views import data, upload_file, index, chouqian
 from camera.views import camera, home
+from django.views.static import serve
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^index/', index),
-    url(r'^data/', data),
+    url(r'^data/$', data),
     url(r'^uploadFile/', upload_file),
     url(r'^camera/', camera),
-    url(r'^$', home)
-
+    url(r'^$', home),
+    url(r'^facePhoto/(?P<path>.*)$', serve, {'document_root': 'facePhoto'}),
+    url(r'^chouqian/facePhoto/(?P<path>.*)$', serve, {'document_root': 'facePhoto'}),
+    url(r'^chouqian/', chouqian),
 ]

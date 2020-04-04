@@ -9,7 +9,6 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'home.html')
 
-
 def camera(request):
     face_cascade = cv2.CascadeClassifier(
         "C:\\Users\\TIM\\cascades\\haarcascade_frontalface_default.xml")

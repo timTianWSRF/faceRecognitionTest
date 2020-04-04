@@ -3,6 +3,7 @@ from .models import Name_Picture
 from django.http import HttpResponse, HttpResponseRedirect
 import os
 import redis
+import random
 
 red = redis.Redis(host='localhost', port=6379, db=1)
 
@@ -46,3 +47,23 @@ def upload_file(request):
     elif request.method == 'GET':
         return render(request, 'index.html')
 
+
+def chouqian(request):
+    red = redis.StrictRedis(host='localhost', port=6379, db=1)
+    facesName = red.keys()
+    facesName = list(set(facesName))
+    facesResult =random.sample(facesName, 2)
+    facesResult2 = []
+    for face in facesResult:
+        facesResult2.append(str(face, 'utf-8'))
+
+    routes = []
+    for face in facesResult:
+        routes.append(red.get(face).decode('utf-8'))
+
+    result = dict(zip(facesResult2, routes))
+
+    context = {
+        'result': result,
+    }
+    return render(request, 'chouqian.html', context=context)
