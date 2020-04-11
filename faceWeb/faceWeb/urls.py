@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
-from faceDataManagement.views import data, upload_file, index, chouqian
+from faceDataManagement.views import data, upload_file, index, chouqian, course
 from camera.views import camera, home
 from django.views.static import serve
 

@@ -52,7 +52,7 @@ def chouqian(request):
     red = redis.StrictRedis(host='localhost', port=6379, db=1)
     facesName = red.keys()
     facesName = list(set(facesName))
-    facesResult =random.sample(facesName, 2)
+    facesResult = random.sample(facesName, 2)
     facesResult2 = []
     for face in facesResult:
         facesResult2.append(str(face, 'utf-8'))
@@ -63,8 +63,23 @@ def chouqian(request):
 
     result = dict(zip(facesResult2, routes))
 
+    courses = [
+        '声速测量',
+        '粘度系数测定',
+        '单缝衍射实验',
+        '霍尔效应',
+        '电子示波器实验',
+        '测薄透镜焦距',
+        '迈克尔逊干涉实验',
+        '牛顿环和劈尖干涉',
+        '分光计测折射率',
+        '磁滞回线的测定',
+    ]
+    course = random.sample(courses, 2)
+
     context = {
         'result': result,
+        'course': course,
     }
     return render(request, 'chouqian.html', context=context)
 
@@ -82,8 +97,8 @@ def course(request):
         '分光计测折射率',
         '磁滞回线的测定',
     ]
-    course = random.sample(courses, 1)
+    Course = random.sample(courses, 1)
     context = {
-        'course': course,
+        'Course': Course,
     }
     return render(request, 'chouqian.html', context=context)
