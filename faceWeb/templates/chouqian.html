@@ -8,7 +8,7 @@
 <body>
 <li>抽签结果</li>
     {% for k, v in result.items %}
-        <a href="{{ v }}">姓名：{{ k }}</a>
+        <li><a href="{{ v }}">姓名：{{ k }}-实验：{{ course }}</a></li>
     {% endfor %}
 </body>
 </html>

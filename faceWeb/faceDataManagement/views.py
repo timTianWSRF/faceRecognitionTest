@@ -67,3 +67,23 @@ def chouqian(request):
         'result': result,
     }
     return render(request, 'chouqian.html', context=context)
+
+
+def course(request):
+    courses = [
+        '声速测量',
+        '粘度系数测定',
+        '单缝衍射实验',
+        '霍尔效应',
+        '电子示波器实验',
+        '测薄透镜焦距',
+        '迈克尔逊干涉实验',
+        '牛顿环和劈尖干涉',
+        '分光计测折射率',
+        '磁滞回线的测定',
+    ]
+    course = random.sample(courses, 1)
+    context = {
+        'course': course,
+    }
+    return render(request, 'chouqian.html', context=context)
