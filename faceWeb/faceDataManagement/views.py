@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 import os
 import redis
 import random
+import pandas as pd
 
 red = redis.Redis(host='localhost', port=6379, db=1)
 
@@ -52,17 +53,126 @@ def chouqian(request):
     red = redis.StrictRedis(host='localhost', port=6379, db=1)
     facesName = red.keys()
     facesName = list(set(facesName))
-    facesResult = random.sample(facesName, 2)
+    facesResult = random.sample(facesName, 3)
+    for x in facesResult:
+        facesName.remove(x)
     facesResult2 = []
     for face in facesResult:
         facesResult2.append(str(face, 'utf-8'))
-
     routes = []
     for face in facesResult:
         routes.append(red.get(face).decode('utf-8'))
-
     result = dict(zip(facesResult2, routes))
 
+    facesName = list(set(facesName))
+    facesResult = random.sample(facesName, 3)
+    for x in facesResult:
+        facesName.remove(x)
+    facesResult2 = []
+    for face in facesResult:
+        facesResult2.append(str(face, 'utf-8'))
+    routes = []
+    for face in facesResult:
+        routes.append(red.get(face).decode('utf-8'))
+    result1 = dict(zip(facesResult2, routes))
+
+    facesName = list(set(facesName))
+    facesResult = random.sample(facesName, 3)
+    for x in facesResult:
+        facesName.remove(x)
+    facesResult2 = []
+    for face in facesResult:
+        facesResult2.append(str(face, 'utf-8'))
+    routes = []
+    for face in facesResult:
+        routes.append(red.get(face).decode('utf-8'))
+    result2 = dict(zip(facesResult2, routes))
+
+    facesName = list(set(facesName))
+    facesResult = random.sample(facesName, 3)
+    for x in facesResult:
+        facesName.remove(x)
+    facesResult2 = []
+    for face in facesResult:
+        facesResult2.append(str(face, 'utf-8'))
+    routes = []
+    for face in facesResult:
+        routes.append(red.get(face).decode('utf-8'))
+    result3 = dict(zip(facesResult2, routes))
+
+    facesName = list(set(facesName))
+    facesResult = random.sample(facesName, 3)
+    for x in facesResult:
+        facesName.remove(x)
+    facesResult2 = []
+    for face in facesResult:
+        facesResult2.append(str(face, 'utf-8'))
+    routes = []
+    for face in facesResult:
+        routes.append(red.get(face).decode('utf-8'))
+    result4 = dict(zip(facesResult2, routes))
+
+    facesName = list(set(facesName))
+    facesResult = random.sample(facesName, 3)
+    for x in facesResult:
+        facesName.remove(x)
+    facesResult2 = []
+    for face in facesResult:
+        facesResult2.append(str(face, 'utf-8'))
+    routes = []
+    for face in facesResult:
+        routes.append(red.get(face).decode('utf-8'))
+    result5 = dict(zip(facesResult2, routes))
+
+    facesName = list(set(facesName))
+    facesResult = random.sample(facesName, 3)
+    for x in facesResult:
+        facesName.remove(x)
+    facesResult2 = []
+    for face in facesResult:
+        facesResult2.append(str(face, 'utf-8'))
+    routes = []
+    for face in facesResult:
+        routes.append(red.get(face).decode('utf-8'))
+    result6 = dict(zip(facesResult2, routes))
+
+    facesName = list(set(facesName))
+    facesResult = random.sample(facesName, 3)
+    for x in facesResult:
+        facesName.remove(x)
+    facesResult2 = []
+    for face in facesResult:
+        facesResult2.append(str(face, 'utf-8'))
+    routes = []
+    for face in facesResult:
+        routes.append(red.get(face).decode('utf-8'))
+    result7 = dict(zip(facesResult2, routes))
+
+    facesName = list(set(facesName))
+    facesResult = random.sample(facesName, 3)
+    for x in facesResult:
+        facesName.remove(x)
+    facesResult2 = []
+    for face in facesResult:
+        facesResult2.append(str(face, 'utf-8'))
+    routes = []
+    for face in facesResult:
+        routes.append(red.get(face).decode('utf-8'))
+    result8 = dict(zip(facesResult2, routes))
+
+    facesName = list(set(facesName))
+    facesResult = random.sample(facesName, 3)
+    for x in facesResult:
+        facesName.remove(x)
+    facesResult2 = []
+    for face in facesResult:
+        facesResult2.append(str(face, 'utf-8'))
+    routes = []
+    for face in facesResult:
+        routes.append(red.get(face).decode('utf-8'))
+    result9 = dict(zip(facesResult2, routes))
+
+
     courses = [
         '声速测量',
         '粘度系数测定',
@@ -75,30 +185,21 @@ def chouqian(request):
         '分光计测折射率',
         '磁滞回线的测定',
     ]
-    course = random.sample(courses, 2)
+
 
     context = {
+        'course': courses,
         'result': result,
-        'course': course,
+        'result1': result1,
+        'result2': result2,
+        'result3': result3,
+        'result4': result4,
+        'result5': result5,
+        'result6': result6,
+        'result7': result7,
+        'result8': result8,
+        'result9': result9,
     }
     return render(request, 'chouqian.html', context=context)
 
 
-def course(request):
-    courses = [
-        '声速测量',
-        '粘度系数测定',
-        '单缝衍射实验',
-        '霍尔效应',
-        '电子示波器实验',
-        '测薄透镜焦距',
-        '迈克尔逊干涉实验',
-        '牛顿环和劈尖干涉',
-        '分光计测折射率',
-        '磁滞回线的测定',
-    ]
-    Course = random.sample(courses, 1)
-    context = {
-        'Course': Course,
-    }
-    return render(request, 'chouqian.html', context=context)
