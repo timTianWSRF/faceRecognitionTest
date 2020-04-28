@@ -20,14 +20,22 @@ from faceDataManagement.views import data, upload_file, index, chouqian
 from camera.views import camera, home
 from django.views.static import serve
 
+from login.views import login, tologin
+from register.views import register
+
+from login.views import facelogin
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^index/', index),
     url(r'^data/$', data),
     url(r'^uploadFile/', upload_file),
-    url(r'^camera/', camera),
+    url(r'^camera/', facelogin),
     url(r'^$', home),
     url(r'^facePhoto/(?P<path>.*)$', serve, {'document_root': 'facePhoto'}),
     url(r'^chouqian/facePhoto/(?P<path>.*)$', serve, {'document_root': 'facePhoto'}),
     url(r'^chouqian/', chouqian),
+    path(r'register/', register),
+    path(r'login/', login),
+    path(r'logout/', tologin),
 ]

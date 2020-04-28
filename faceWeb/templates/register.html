@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+  <div>
+        <h2>请输入注册信息</h2>
+        <form role="form" action="/register/" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="username" >用户名</label>
+                    <label>
+                        <input name="username" type="text" placeholder="请输入用户名">
+                    </label>
+            </div>
+            <div>
+                <label for="email">邮箱</label>
+                <label>
+                    <input name="email" type="text" placeholder="请输入邮箱">
+                </label>
+
+            </div>
+            <div>
+                <label for="password" >密码</label>
+                    <label>
+                        <input name="password" type="text" placeholder="请输入密码">
+                    </label>
+            </div>
+            <input type="reset" value="重置">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>

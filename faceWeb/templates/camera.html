@@ -11,13 +11,12 @@
 <head>
     <link href="../favicon.ico" rel="shortcut icon">
     <meta charset="UTF-8">
-    <title>上传照片</title>
+    <title>人脸验证</title>
 </head>
 <body>
-        <form enctype="multipart/form-data" action="/camera/" method="GET">
-            <li>人脸检测</li>
-            <li>按S识别，按退出</li>
-        </form>
-
+    <form role="form" action="/camera/" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="登录">
+    </form>
 </body>
 </html>

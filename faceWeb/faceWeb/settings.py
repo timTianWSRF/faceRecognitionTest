@@ -25,7 +25,7 @@ SECRET_KEY = '$rwh(qrlx1)l^17n-pgl-3*7zu#g=d6p&*0ehxx8cv=%o$8!bo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'faceDataManagement',
     'camera',
+    'login',
+    'register',
 ]
 
 MIDDLEWARE = [
@@ -79,14 +81,21 @@ WSGI_APPLICATION = 'faceWeb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'face',
+#         'USER': 'root',
+#         'PASSWORD': '56167823',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'face',
-        'USER': 'root',
-        'PASSWORD': '56167823',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

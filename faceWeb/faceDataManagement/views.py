@@ -4,7 +4,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 import os
 import redis
 import random
-import pandas as pd
 
 red = redis.Redis(host='localhost', port=6379, db=1)
 
