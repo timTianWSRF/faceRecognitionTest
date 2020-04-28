@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/faceRecognitionTest.iml" filepath="$PROJECT_DIR$/.idea/faceRecognitionTest.iml" />
+      <module fileurl="file://E:/FTP传输/.idea/FTP传输.iml" filepath="E:/FTP传输/.idea/FTP传输.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Test1test/.idea/Test1test.iml" filepath="$PROJECT_DIR$/../../Test1test/.idea/Test1test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../WEBfaceRecognitionTest/.idea/faceRecognitionTest.iml" filepath="$PROJECT_DIR$/../WEBfaceRecognitionTest/.idea/faceRecognitionTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../untitled/.idea/untitled.iml" filepath="$PROJECT_DIR$/../untitled/.idea/untitled.iml" />
     </modules>
   </component>
 </project>
