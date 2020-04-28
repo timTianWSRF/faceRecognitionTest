@@ -49,129 +49,34 @@ def upload_file(request):
         return render(request, 'index.html')
 
 
+def func(facesName):
+    facesName = list(set(facesName))
+    facesResult = random.sample(facesName, 3)
+    for x in facesResult:
+        facesName.remove(x)
+    facesResult2 = []
+    for face in facesResult:
+        facesResult2.append(str(face, 'utf-8'))
+    routes = []
+    for face in facesResult:
+        routes.append(red.get(face).decode('utf-8'))
+    return dict(zip(facesResult2, routes))
+
+
 def chouqian(request):
     red = redis.StrictRedis(host='localhost', port=6379, db=1)
     facesName = red.keys()
-    facesName = list(set(facesName))
-    facesResult = random.sample(facesName, 3)
-    for x in facesResult:
-        facesName.remove(x)
-    facesResult2 = []
-    for face in facesResult:
-        facesResult2.append(str(face, 'utf-8'))
-    routes = []
-    for face in facesResult:
-        routes.append(red.get(face).decode('utf-8'))
-    result = dict(zip(facesResult2, routes))
 
-    facesName = list(set(facesName))
-    facesResult = random.sample(facesName, 3)
-    for x in facesResult:
-        facesName.remove(x)
-    facesResult2 = []
-    for face in facesResult:
-        facesResult2.append(str(face, 'utf-8'))
-    routes = []
-    for face in facesResult:
-        routes.append(red.get(face).decode('utf-8'))
-    result1 = dict(zip(facesResult2, routes))
-
-    facesName = list(set(facesName))
-    facesResult = random.sample(facesName, 3)
-    for x in facesResult:
-        facesName.remove(x)
-    facesResult2 = []
-    for face in facesResult:
-        facesResult2.append(str(face, 'utf-8'))
-    routes = []
-    for face in facesResult:
-        routes.append(red.get(face).decode('utf-8'))
-    result2 = dict(zip(facesResult2, routes))
-
-    facesName = list(set(facesName))
-    facesResult = random.sample(facesName, 3)
-    for x in facesResult:
-        facesName.remove(x)
-    facesResult2 = []
-    for face in facesResult:
-        facesResult2.append(str(face, 'utf-8'))
-    routes = []
-    for face in facesResult:
-        routes.append(red.get(face).decode('utf-8'))
-    result3 = dict(zip(facesResult2, routes))
-
-    facesName = list(set(facesName))
-    facesResult = random.sample(facesName, 3)
-    for x in facesResult:
-        facesName.remove(x)
-    facesResult2 = []
-    for face in facesResult:
-        facesResult2.append(str(face, 'utf-8'))
-    routes = []
-    for face in facesResult:
-        routes.append(red.get(face).decode('utf-8'))
-    result4 = dict(zip(facesResult2, routes))
-
-    facesName = list(set(facesName))
-    facesResult = random.sample(facesName, 3)
-    for x in facesResult:
-        facesName.remove(x)
-    facesResult2 = []
-    for face in facesResult:
-        facesResult2.append(str(face, 'utf-8'))
-    routes = []
-    for face in facesResult:
-        routes.append(red.get(face).decode('utf-8'))
-    result5 = dict(zip(facesResult2, routes))
-
-    facesName = list(set(facesName))
-    facesResult = random.sample(facesName, 3)
-    for x in facesResult:
-        facesName.remove(x)
-    facesResult2 = []
-    for face in facesResult:
-        facesResult2.append(str(face, 'utf-8'))
-    routes = []
-    for face in facesResult:
-        routes.append(red.get(face).decode('utf-8'))
-    result6 = dict(zip(facesResult2, routes))
-
-    facesName = list(set(facesName))
-    facesResult = random.sample(facesName, 3)
-    for x in facesResult:
-        facesName.remove(x)
-    facesResult2 = []
-    for face in facesResult:
-        facesResult2.append(str(face, 'utf-8'))
-    routes = []
-    for face in facesResult:
-        routes.append(red.get(face).decode('utf-8'))
-    result7 = dict(zip(facesResult2, routes))
-
-    facesName = list(set(facesName))
-    facesResult = random.sample(facesName, 3)
-    for x in facesResult:
-        facesName.remove(x)
-    facesResult2 = []
-    for face in facesResult:
-        facesResult2.append(str(face, 'utf-8'))
-    routes = []
-    for face in facesResult:
-        routes.append(red.get(face).decode('utf-8'))
-    result8 = dict(zip(facesResult2, routes))
-
-    facesName = list(set(facesName))
-    facesResult = random.sample(facesName, 3)
-    for x in facesResult:
-        facesName.remove(x)
-    facesResult2 = []
-    for face in facesResult:
-        facesResult2.append(str(face, 'utf-8'))
-    routes = []
-    for face in facesResult:
-        routes.append(red.get(face).decode('utf-8'))
-    result9 = dict(zip(facesResult2, routes))
-
+    result = func(facesName)
+    result1 = func(facesName)
+    result2 = func(facesName)
+    result3 = func(facesName)
+    result4 = func(facesName)
+    result5 = func(facesName)
+    result6 = func(facesName)
+    result7 = func(facesName)
+    result8 = func(facesName)
+    result9 = func(facesName)
 
     courses = [
         '声速测量',
