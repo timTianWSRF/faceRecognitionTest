@@ -68,13 +68,12 @@ def camera2():
                     if True in matches:
                         engine = pyttsx3.init()
                         engine.say('你好,{}'.format(face.decode('utf-8')))
-                        engine.runAndWait()
+                        camera.release()
                         flag = True
                         break
             if flag is False:
                 engine = pyttsx3.init()
                 engine.say('无法识别')
-                engine.runAndWait()
                 camera.release()
                 return False
             else:
